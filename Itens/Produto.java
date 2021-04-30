@@ -36,7 +36,17 @@ public abstract class Produto {
         return this.valor;
     }
     
+    public boolean getDisponibilidade(){
+        return this.disponivel;
+    }
+    
     public void estaDisponivel(){
-        Estoque.Read(this.descricao);
+        int var;
+        var = Estoque.ConferirEstoque(this.descricao, this.qtd);
+        
+        if(var == 1)
+            this.disponivel = true;
+        else if(var == 0)
+            this.disponivel = false;
     }
 }
