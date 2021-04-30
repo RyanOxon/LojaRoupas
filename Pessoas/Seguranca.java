@@ -18,7 +18,7 @@ public class Seguranca extends Funcionario{
                     Thread.sleep(1800);
                     
                     System.out.println("Checagem finalizada, " + cliente.getNome() + " está liberado(a)");
-                }catch(Exception ex){
+                }catch(InterruptedException ex){
                     ex.getMessage();
                 }
             
