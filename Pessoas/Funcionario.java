@@ -1,4 +1,4 @@
-package Pessoas;
+//package Pessoas;
 
 public abstract class Funcionario extends Pessoa{
     protected String funcao;

@@ -1,19 +1,19 @@
-package Controle;
+//package Controle;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
+/*
 import Itens.Produto;
 import Pessoas.Cliente;
 import Pessoas.Seguranca;
 import Pessoas.Vendedor;
-
+*/
 public class BancoDeDados {
     private static ArrayList<Produto> produtos = new ArrayList<>();
     private static ArrayList<Vendedor> vendedores = new ArrayList<>();
     private static ArrayList<Seguranca> segurancas = new ArrayList<>();
-    private static ArrayList<Cliente> Clientes = new ArrayList<>();
+    public static ArrayList<Cliente> Clientes = new ArrayList<>();
 
     public static ArrayList<Produto> getProduto(){
         return produtos;
@@ -31,7 +31,7 @@ public class BancoDeDados {
         return Clientes;
     }
 
-    public void cadastraProduto(){
+    public static void cadastraProduto(){
         Scanner scan = new Scanner(System.in);
         System.out.println("Pronto para cadastrar um novo produto!\n Digite a descricao do produto:");
         String nome = scan.nextLine();
@@ -45,10 +45,11 @@ public class BancoDeDados {
         int qtd = Integer.parseInt(scan.nextLine());
         System.out.println("Digite o Valor do produto:");
         double valor = Double.parseDouble(scan.nextLine());
-        produtos.add(new Produto(nome, produtos.size(), qtd, valor, cor, tamanho, tipo));     
+        produtos.add(new Produto(nome, produtos.size(), qtd, valor, cor, tamanho, tipo));
+        scan.close();      
     }
 
-    public void cadastraPessoa(){
+    public static void cadastraPessoa(){
         Scanner scan = new Scanner(System.in);
         System.out.println("Pronto para cadastrar uma nova pessoa!\n Digite o nome da pessoa:");
         String nome = scan.nextLine();
@@ -74,7 +75,8 @@ public class BancoDeDados {
                 int salario = Integer.parseInt(scan.nextLine());
                 segurancas.add(new Seguranca(nome, Cpf, endereco, telefone, salario));
             }
-        }  
+        }
+        scan.close();  
     }
 
     public static void addProduto(Produto produto){
@@ -93,4 +95,14 @@ public class BancoDeDados {
     public static void addSeguranca(Seguranca seguranca){
         segurancas.add(seguranca);
     }
+
+    public static boolean checkVendendor(String operador) {
+        //verificar na ArrayList se o operador informado existe
+        return false;
+    }
+
+	public static Vendedor achaVendedor(String operador) {
+        //Encontrar na ArrayList o operador informado e retornar ele
+		return null;
+	}
 }

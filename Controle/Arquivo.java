@@ -1,14 +1,14 @@
-package Controle;
+//package Controle;
 
 import java.io.*;
 import java.util.ArrayList;
-
+/*
 import Controle.BancoDeDados;
 import Itens.Produto;
 import Pessoas.Cliente;
 import Pessoas.Seguranca;
 import Pessoas.Vendedor;
-
+*/
 
 public class Arquivo {
 
@@ -20,10 +20,10 @@ public class Arquivo {
 			in.close();
 			for(Produto produto : p) BancoDeDados.addProduto(produto);
 			} catch (ClassNotFoundException e) {
-				System.out.println();
+				System.out.println("Erro ao ler a classe");
 			}
 		}catch(IOException e){
-			System.out.println();
+			System.out.println("Erro ao ler");
 		}	
     }
 	public static void lerClientes() {

@@ -1,14 +1,16 @@
+/*
 package Sistema;
 
 import Itens.Produto;
 import Pessoas.Cliente;
 import Pessoas.Vendedor;
+*/
 
 import java.util.*;
 
 public class Caixa {
     private Vendedor usuario;
-    private Cliente clienteAtual;
+    private static Cliente clienteAtual;
     
     Set<Produto> carrinho = new HashSet<>();
 

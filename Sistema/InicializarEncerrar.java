@@ -1,8 +1,9 @@
+/*
 package Sistema;
 
 import Controle.Arquivo;
 import Controle.BancoDeDados;
-
+*/
 public abstract class InicializarEncerrar {
     static boolean sistemaFuncionando = true;
     protected static void iniciaSistema(){
@@ -10,6 +11,7 @@ public abstract class InicializarEncerrar {
         Arquivo.lerClientes();
         Arquivo.lerSeguranca();
         Arquivo.lerVendedor();
+        System.out.println("Sistema Iniciado");
     }
     protected static void encerraSistema(){
         if(!BancoDeDados.getProduto().isEmpty())
@@ -20,5 +22,6 @@ public abstract class InicializarEncerrar {
             Arquivo.escreveSeguranca();
         if(!BancoDeDados.getClientes().isEmpty())
             Arquivo.escreveCliente();
+        System.out.println("Sistema desligado");
     }
 }
