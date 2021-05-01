@@ -1,10 +1,9 @@
-/*
 package Sistema;
 
 import Itens.Produto;
 import Pessoas.Cliente;
 import Pessoas.Vendedor;
-*/
+
 
 import java.util.*;
 
@@ -50,5 +49,30 @@ public class Caixa {
         }
         
         return total;
+    }
+    
+    public void finalizarCompra(){
+        new Thread(){
+            public void run() {
+                try{
+                    System.out.println("Realiazndo o pagamento...");
+                    
+                    Thread.sleep(1300);
+                    
+                    System.out.println("Pagamanto aceito!");
+                }catch(InterruptedException ex){
+                    ex.getMessage();
+                    System.out.println("Erro ao realizar o pagamento.");
+                }
+            
+            }
+            
+       }.start();
+    }
+    
+    public void cancelarCompra(){
+        for(Produto prod: carrinho){
+            removeItem(prod);
+        }
     }
 }
