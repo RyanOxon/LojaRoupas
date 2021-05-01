@@ -10,7 +10,7 @@ import java.util.*;
 
 public class Caixa {
     private Vendedor usuario;
-    private static Cliente clienteAtual;
+    private Cliente clienteAtual;
     
     Set<Produto> carrinho = new HashSet<>();
 

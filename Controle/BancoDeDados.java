@@ -13,7 +13,7 @@ public class BancoDeDados {
     private static ArrayList<Produto> produtos = new ArrayList<>();
     private static ArrayList<Vendedor> vendedores = new ArrayList<>();
     private static ArrayList<Seguranca> segurancas = new ArrayList<>();
-    public static ArrayList<Cliente> Clientes = new ArrayList<>();
+    private static ArrayList<Cliente> Clientes = new ArrayList<>();
 
     public static ArrayList<Produto> getProduto(){
         return produtos;
@@ -113,5 +113,15 @@ public class BancoDeDados {
         }
 
             return null;
+    }
+
+    public static boolean checkCliente(String nome) {
+        //verifica na arrayList se o nome existe
+        for(Cliente cliente: Clientes){
+            if(cliente.getNome().equals(nome)){
+                return true;
+            }
+        }
+        return false;
     }
 }

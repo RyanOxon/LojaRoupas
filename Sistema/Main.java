@@ -14,7 +14,6 @@ public class Main {
         var resposta = new Scanner(System.in);
         int opcao = 0;
         boolean caixaAberto = false;
-        /*
         do{
             System.out.println("_______________________________________________");
             System.out.println("| Menu Principal:");
@@ -45,12 +44,22 @@ public class Main {
                         BancoDeDados.cadastraPessoa();
                         System.out.println("\n cliente cadastrado refaca a operacao!");
                     }else{
-                        boolean compraAberta = true
+                        boolean compraAberta = true;
+                        do{
+                            System.out.println("_______________________________________________");
+                            System.out.println("| Menu De Venda:");
+                            System.out.println("| 1. Adicionar Produto");
+                            System.out.println("| 2. Remover produto");
+                            System.out.println("| 3. Ver total");
+                            System.out.println("| 4. Finalizar compra");
+                            System.out.println("| 5. Cancelar compra");
+                            System.out.println("________________________________________________");
+                        }while(compraAberta);
                     }
                 }
             }
         }while(opcao != 0);
-        */
+
         resposta.close();
         InicializarEncerrar.encerraSistema();
         
