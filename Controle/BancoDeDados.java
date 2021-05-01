@@ -1,13 +1,13 @@
-//package Controle;
+package Controle;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
-//import Itens.Produto;
-//import Pessoas.Cliente;
-//import Pessoas.Seguranca;
-//import Pessoas.Vendedor;
+import Itens.Produto;
+import Pessoas.Cliente;
+import Pessoas.Seguranca;
+import Pessoas.Vendedor;
 
 public class BancoDeDados {
     private static ArrayList<Produto> produtos = new ArrayList<>();
@@ -49,9 +49,9 @@ public class BancoDeDados {
         scan.close();      
     }
 
-    public static void cadastraPessoa(){
+    public static void cadastraCliente(){
         Scanner scan = new Scanner(System.in);
-        System.out.println("Pronto para cadastrar uma nova pessoa!\n Digite o nome da pessoa:");
+        System.out.println("Pronto para cadastrar um novo cliente!\n Digite o nome do cliente:");
         String nome = scan.nextLine();
         System.out.println("Digite o Cpf:");
         String Cpf = scan.nextLine();
@@ -59,23 +59,34 @@ public class BancoDeDados {
         String endereco = scan.nextLine();
         System.out.println("Digite o Telefone");
         String telefone = scan.nextLine();
-        System.out.println("Escolha o tipo de pessoa para o cadastro: \n | 1 - Cliente | 2 - Funcionario |");
-        int resposta = Integer.parseInt(scan.nextLine());
-        if (resposta == 1){
-            Clientes.add(new Cliente(nome, Cpf, endereco, telefone));
-        }else if(resposta == 2){
-            System.out.println("Escolha a funcao do funcionario: \n | 1 - vendedor | 2 - seguranca |");
-            int resp = Integer.parseInt(scan.nextLine());
-            if(resp == 1){
-                System.out.println("Digite o Salario:");
-                int salario = Integer.parseInt(scan.nextLine());
-                vendedores.add(new Vendedor(nome, Cpf, endereco, telefone, salario));
-            }else if(resp == 2){
-                System.out.println("Digite o Salario:");
-                int salario = Integer.parseInt(scan.nextLine());
-                segurancas.add(new Seguranca(nome, Cpf, endereco, telefone, salario));
-            }
+        Clientes.add(new Cliente(nome, Cpf, endereco, telefone));
+         
+        scan.close();  
+    }
+    
+    public static void cadastraFuncionario(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Pronto para cadastrar um novo funcionário!\n Digite o nome do funcionário:");
+        String nome = scan.nextLine();
+        System.out.println("Digite o Cpf:");
+        String Cpf = scan.nextLine();
+        System.out.println("Digite Endereco:");
+        String endereco = scan.nextLine();
+        System.out.println("Digite o Telefone");
+        String telefone = scan.nextLine();
+        
+        System.out.println("Escolha a funcao do funcionario: \n | 1 - Vendedor | 2 - Segurança |");
+        int resp = Integer.parseInt(scan.nextLine());
+        if(resp == 1){
+            System.out.println("Digite o Salario:");
+            int salario = Integer.parseInt(scan.nextLine());
+            vendedores.add(new Vendedor(nome, Cpf, endereco, telefone, salario));
+        }else if(resp == 2){
+            System.out.println("Digite o Salario:");
+            int salario = Integer.parseInt(scan.nextLine());
+            segurancas.add(new Seguranca(nome, Cpf, endereco, telefone, salario));
         }
+        
         scan.close();  
     }
 
