@@ -59,9 +59,11 @@ public class Main {
                             int resp = Integer.parseInt(resposta.nextLine());
                             
                             if(resp == 1){
-                                
+                                Produto prod = caixa.criaProduto();
+                                caixa.addItem(prod);
                             }else if(resp == 2){
-                                
+                                Produto prod = caixa.criaProduto();
+                                caixa.removeItem(prod);
                             }else if(resp == 3){
                                 System.out.println("O total é de: " + caixa.getTotal());
                             }else if(resp == 4){
