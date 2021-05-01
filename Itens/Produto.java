@@ -2,32 +2,30 @@ package Itens;
 
 import Controle.Estoque;
 
-
-public abstract class Produto {
+public class Produto {
     
     private String descricao;
-    private String cor;
+    private int Id;
     private int qtd;
     private double valor;
+    private String cor;
     private String tamanho;
-    private boolean disponivel;
+    private String tipo;
     
-    Produto(String descricao, String cor, int qtd, double valor, String tamanho){
+    public Produto(String descricao, int id, int qtd, double valor, String cor, String tamanho, String tipo) {
         this.descricao = descricao;
-        this.cor = cor;
+        this.Id = id;
         this.qtd = qtd;
         this.valor = valor;
+        this.cor = cor;
         this.tamanho = tamanho;
+        this.tipo = tipo;
     }
-    
+
     public String getDescricao(){
         return this.descricao;
     }
-    
-    public String getCor(){
-        return this.cor;
-    }
-    
+       
     public int getQtd(){
         return this.qtd;
     }
@@ -35,18 +33,17 @@ public abstract class Produto {
     public double getValor(){
         return this.valor;
     }
-    
-    public boolean getDisponibilidade(){
-        return this.disponivel;
+     
+    public int getId(){
+        return this.Id;
     }
-    
-    public void estaDisponivel(){
-        int var;
-        var = Estoque.ConferirEstoque(this.descricao, this.qtd);
-        
-        if(var == 1)
-            this.disponivel = true;
-        else if(var == 0)
-            this.disponivel = false;
+
+    public boolean estaDisponivel(){
+        if(qtd != 0) return true;
+        else return false;
+    }
+
+    public void setId(int id) {
+        this.Id = id;
     }
 }

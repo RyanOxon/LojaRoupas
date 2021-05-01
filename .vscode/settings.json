@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": [
+        "Pessoas",
+        "Itens",
+        "Controle",
+        "Carrinho",
+        "Sistema"
+    ]
+}
