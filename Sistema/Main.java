@@ -1,18 +1,16 @@
+import Itens.Produto;
+
 package Sistema;
 
 import java.util.Scanner;
-
-import Controle.BancoDeDados;
-import Controle.Estoque;
-import Itens.Camisa;
-import Pessoas.Vendedor;
-import Sistema.InicializarEncerrar;
+import Controle.*;
+import Itens.*;
+import Pessoas.*;
+import Sistema.*;
 
 public class Main {
     public static void main(String[] args){
         InicializarEncerrar.iniciaSistema();
-        Vendedor rafael = new Vendedor("Rafael", "1", "Rua estrela 123", "2345-1234", 1200);
-        BancoDeDados.addVendedor(rafael);
         //Caixa caixa = new Caixa(rafael);
         /*Scanner resposta = new Scanner(System.in);
         int opcao = 0;

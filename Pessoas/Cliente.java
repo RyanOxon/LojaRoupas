@@ -1,8 +1,10 @@
-package Pessoas;
+import java.io.Serializable;
 
-import Carrinho.Carrinho; 
-import Itens.Produto;
-public class Cliente extends Pessoa{
+//package Pessoas;
+ 
+//import Itens.Produto;
+
+public class Cliente extends Pessoa implements Serializable{
     private String fidelidade;
     
     

@@ -1,13 +1,13 @@
-package Controle;
+//package Controle;
 
 import java.io.*;
 import java.util.ArrayList;
 
-import Controle.BancoDeDados;
-import Itens.Produto;
-import Pessoas.Cliente;
-import Pessoas.Seguranca;
-import Pessoas.Vendedor;
+//import Controle.BancoDeDados;
+//import Itens.Produto;
+//import Pessoas.Cliente;
+//import Pessoas.Seguranca;
+//import Pessoas.Vendedor;
 
 
 public class Arquivo {
@@ -75,8 +75,10 @@ public class Arquivo {
 			out.writeObject(BancoDeDados.getProduto());
 			out.flush();
 			out.close();
+			System.out.println("Produtos Salvos");
 		} catch (IOException e) {
 			System.out.println("Erro ao salvar os produtos");
+			e.printStackTrace();
 		}
 	}
 
@@ -86,6 +88,7 @@ public class Arquivo {
 			out.writeObject(BancoDeDados.getVendedor());
 			out.flush();
 			out.close();
+			System.out.println("Vendedores Salvos");
 		} catch (IOException e) {
 			System.out.println("Erro ao salvar os vendedores");
 		}
@@ -97,6 +100,7 @@ public class Arquivo {
 			out.writeObject(BancoDeDados.getSeguranca());
 			out.flush();
 			out.close();
+			System.out.println("Segurancas Salvos");
 		} catch (IOException e) {
 			System.out.println("Erro ao salvar os segurancas");
 		}
@@ -108,6 +112,7 @@ public class Arquivo {
 			out.writeObject(BancoDeDados.getClientes());
 			out.flush();
 			out.close();
+			System.out.println("Clientes Salvos");
 		} catch (IOException e) {
 			System.out.println("Erro ao salvar os produtos");
 		}

@@ -1,7 +1,9 @@
-package Pessoas;
+import java.io.Serializable;
+
+//package Pessoas;
 
 
-public class Seguranca extends Funcionario{
+public class Seguranca extends Funcionario implements Serializable{
     public Seguranca(String nome, String cpf, String endereco, String telefone, int salario){
         super(nome, cpf, endereco, telefone, salario);
         this.funcao = "Segurança";

@@ -1,8 +1,8 @@
-package Itens;
+import java.io.Serializable;
 
-import Controle.Estoque;
+//package Itens;
 
-public class Produto {
+public class Produto implements Serializable {
     
     private String descricao;
     private int Id;
