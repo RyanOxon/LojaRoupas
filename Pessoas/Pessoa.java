@@ -1,6 +1,8 @@
+import java.io.Serializable;
+
 //package Pessoas;
 
-public abstract class Pessoa {
+public abstract class Pessoa implements Serializable{
     
     protected String nome;
     protected String cpf;

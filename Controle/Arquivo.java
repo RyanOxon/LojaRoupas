@@ -26,7 +26,7 @@ public class Arquivo {
 			System.out.println("Erro ao ler");
 		}	
     }
-	public static void lerClientes() {
+	public static void lerVendedor() {
 		try{
 			ObjectInputStream in = new ObjectInputStream(new FileInputStream("Controle\\Vendedores.dat"));
 			try{
@@ -54,7 +54,7 @@ public class Arquivo {
 			System.out.println();
 		}	
 	}
-	public static void lerVendedor() {
+	public static void lerClientes() {
 		try{
 			ObjectInputStream in = new ObjectInputStream(new FileInputStream("Controle\\Clientes.dat"));
 			try{
@@ -71,6 +71,7 @@ public class Arquivo {
 
 	public static void escreveProduto() {
 		try {
+			System.out.println("Salvando produtos");
 			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Controle\\Produtos.dat"));
 			out.writeObject(BancoDeDados.getProduto());
 			out.flush();
@@ -84,6 +85,7 @@ public class Arquivo {
 
 	public static void escreveVendedor() {
 		try {
+			System.out.println("Salvando Vendedores");
 			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Controle\\Vendedores.dat"));
 			out.writeObject(BancoDeDados.getVendedor());
 			out.flush();
@@ -96,6 +98,7 @@ public class Arquivo {
 
 	public static void escreveSeguranca() {
 		try {
+			System.out.println("Salvando segurancas");
 			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Controle\\Segurancas.dat"));
 			out.writeObject(BancoDeDados.getSeguranca());
 			out.flush();
@@ -108,6 +111,7 @@ public class Arquivo {
 
 	public static void escreveCliente() {
 		try {
+			System.out.println("Salvando Clientes");
 			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Controle\\Clientes.dat"));
 			out.writeObject(BancoDeDados.getClientes());
 			out.flush();

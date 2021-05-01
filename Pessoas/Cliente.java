@@ -4,7 +4,7 @@ import java.io.Serializable;
  
 //import Itens.Produto;
 
-public class Cliente extends Pessoa implements Serializable{
+public class Cliente extends Pessoa{
     private String fidelidade;
     
     

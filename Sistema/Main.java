@@ -14,6 +14,7 @@ public class Main {
         var resposta = new Scanner(System.in);
         int opcao = 0;
         boolean caixaAberto = false;
+        /*
         do{
             System.out.println("_______________________________________________");
             System.out.println("| Menu Principal:");
@@ -27,7 +28,7 @@ public class Main {
             System.out.println("________________________________________________");
             opcao = Integer.parseInt(resposta.nextLine());
             if(opcao == 1){
-                if(caixaAberto == false){
+                if(!caixaAberto){
                     System.out.println("Digite o nome do operador");
                     String operador = resposta.nextLine();
                     if(BancoDeDados.checkVendendor(operador)){
@@ -36,16 +37,20 @@ public class Main {
                     }else System.out.println("Vendedor nao encontrado, verifique a ortografia ou cadastre o vendedor\n");
                 }else System.out.println("\nCaixa ja aberto! para abrir um novo, encerre o atual\n");
             }else if(opcao == 2){
-                System.out.println("Informe o Cliente a ser atendido");
-                String nome = resposta.nextLine();
-                if(!BancoDeDados.checkCliente(nome)){
-                    System.out.println("Cliente nao encontrado, por favor cadastre-o\n");
-                    BancoDeDados.cadastraPessoa();
-                    caixa.setClienteAtual(BancoDeDados.achaCliente())
-
+                if(caixaAberto){
+                    System.out.println("Informe o Cliente a ser atendido");
+                    String nome = resposta.nextLine();
+                    if(!BancoDeDados.checkCliente(nome)){
+                        System.out.println("Cliente nao encontrado, por favor cadastre-o\n");
+                        BancoDeDados.cadastraPessoa();
+                        System.out.println("\n cliente cadastrado refaca a operacao!");
+                    }else{
+                        boolean compraAberta = true
+                    }
                 }
             }
         }while(opcao != 0);
+        */
         resposta.close();
         InicializarEncerrar.encerraSistema();
         

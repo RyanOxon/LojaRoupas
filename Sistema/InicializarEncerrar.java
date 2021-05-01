@@ -14,14 +14,14 @@ public abstract class InicializarEncerrar {
         System.out.println("Sistema Iniciado");
     }
     protected static void encerraSistema(){
-        if(!BancoDeDados.getProduto().isEmpty())
-            Arquivo.escreveProduto();
-        if(!BancoDeDados.getVendedor().isEmpty())
-            Arquivo.escreveVendedor();
-        if(!BancoDeDados.getSeguranca().isEmpty())
-            Arquivo.escreveSeguranca();
-        if(!BancoDeDados.getClientes().isEmpty())
-            Arquivo.escreveCliente();
+        if(!BancoDeDados.getProduto().isEmpty()){
+            Arquivo.escreveProduto();}
+        if(!BancoDeDados.getVendedor().isEmpty()){
+            Arquivo.escreveVendedor();}
+        if(!BancoDeDados.getSeguranca().isEmpty()){
+            Arquivo.escreveSeguranca();}
+        if(!BancoDeDados.getClientes().isEmpty()){
+            Arquivo.escreveCliente();}
         System.out.println("Sistema desligado");
     }
 }
