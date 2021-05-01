@@ -10,11 +10,17 @@ import java.util.*;
 public class Caixa {
     private Vendedor usuario;
     private Cliente clienteAtual;
+    private boolean ocupado;
     
     Set<Produto> carrinho = new HashSet<>();
 
+    public Caixa(){
+        this.ocupado = false;
+    }
+    
     public Caixa(Vendedor vendedor) {
         this.setUsuario(vendedor);
+        this.ocupado = true;
     }
 
     public Cliente getClienteAtual() {
@@ -49,6 +55,14 @@ public class Caixa {
         }
         
         return total;
+    }
+    
+    public boolean getOcupado(){
+        return this.ocupado;
+    }
+    
+    public void ocupaCaixaVazio(Vendedor usuario){
+        this.usuario = usuario;
     }
     
     public void finalizarCompra(){
