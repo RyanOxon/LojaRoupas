@@ -1,8 +1,8 @@
-//package Sistema;
+package Sistema;
 
-//import Itens.Produto;
-//import Pessoas.Cliente;
-//import Pessoas.Vendedor;
+import Itens.Produto;
+import Pessoas.Cliente;
+import Pessoas.Vendedor;
 
 import java.util.*;
 

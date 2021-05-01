@@ -1,6 +1,6 @@
-import java.io.Serializable;
+package Itens;
 
-//package Itens;
+import java.io.Serializable;
 
 public class Produto implements Serializable {
     
