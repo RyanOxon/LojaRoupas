@@ -16,9 +16,20 @@ public class BancoDeDados {
     private static ArrayList<Seguranca> segurancas = new ArrayList<>();
     private static ArrayList<Cliente> Clientes = new ArrayList<>();
 
-    public void addProduto(Produto produto){
-        produtos.add(produto);
-        produto.setId((produtos.size()-1));
+    public static ArrayList<Produto> getProduto(){
+        return produtos;
+    }
+
+    public static ArrayList<Vendedor> getVendedor(){
+        return vendedores;
+    }
+
+    public static ArrayList<Seguranca> getSeguranca(){
+        return segurancas;
+    }
+
+    public static ArrayList<Cliente> getClientes(){
+        return Clientes;
     }
 
     public void cadastraProduto(){
@@ -66,15 +77,21 @@ public class BancoDeDados {
             }
         }  
     }
-    public void addCliente(Cliente cliente){
+
+    public static void addProduto(Produto produto){
+        produtos.add(produto);
+        produto.setId((produtos.size()-1));
+    }
+
+    public static void addCliente(Cliente cliente){
         Clientes.add(cliente);
     }
 
-    public void addVendedor(Vendedor vendedor){
+    public static void addVendedor(Vendedor vendedor){
         vendedores.add(vendedor);
     }
 
-    public void addSeguranca(Seguranca seguranca){
+    public static void addSeguranca(Seguranca seguranca){
         segurancas.add(seguranca);
     }
 }
