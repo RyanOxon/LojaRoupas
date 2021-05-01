@@ -89,4 +89,29 @@ public class Caixa {
             removeItem(prod);
         }
     }
+    
+    public Produto criaProduto(){
+        Scanner scan = new Scanner(System.in);
+        
+        System.out.println("Digite a descricao do produto:");
+        String nome = scan.nextLine();
+        System.out.println("Digite o tipo do produto");
+        String tipo = scan.nextLine();
+        System.out.println("Digite a Cor do produto");
+        String cor = scan.nextLine();
+        System.out.println("Digite o tamanho do produto");
+        String tamanho = scan.nextLine();
+        System.out.println("Digite a quantidade do produto:");
+        int qtd = Integer.parseInt(scan.nextLine());
+        System.out.println("Digite a id do produto:");
+        int id = Integer.parseInt(scan.nextLine());
+        System.out.println("Digite o Valor do produto:");
+        double valor = Double.parseDouble(scan.nextLine());
+        Produto prod = new Produto(nome, id, qtd, valor, cor, tamanho, tipo);
+        scan.close();
+        
+        
+        
+        return prod;
+    }
 }
