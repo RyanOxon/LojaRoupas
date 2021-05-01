@@ -5,6 +5,9 @@ import java.util.Scanner;
 import java.util.Vector;
 
 import Itens.Produto;
+import Pessoas.Cliente;
+import Pessoas.Seguranca;
+import Pessoas.Vendedor;
 
 
 public class BancoDeDados {
@@ -35,4 +38,43 @@ public class BancoDeDados {
         produtos.add(new Produto(nome, produtos.size(), qtd, valor, cor, tamanho, tipo));     
     }
 
+    public void cadastraPessoa(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Pronto para cadastrar uma nova pessoa!\n Digite o nome da pessoa:");
+        String nome = scan.nextLine();
+        System.out.println("Digite o Cpf:");
+        String Cpf = scan.nextLine();
+        System.out.println("Digite Endereco:");
+        String endereco = scan.nextLine();
+        System.out.println("Digite o Telefone");
+        String telefone = scan.nextLine();
+        System.out.println("Escolha o tipo de pessoa para o cadastro: \n | 1 - Cliente | 2 - Funcionario |");
+        int resposta = Integer.parseInt(scan.nextLine());
+        if (resposta == 1){
+            Clientes.add(new Cliente(nome, Cpf, endereco, telefone));
+        }else if(resposta == 2){
+            System.out.println("Escolha a funcao do funcionario: \n | 1 - vendedor | 2 - seguranca |");
+            int resp = Integer.parseInt(scan.nextLine());
+            if(resp == 1){
+                System.out.println("Digite o Salario:");
+                int salario = Integer.parseInt(scan.nextLine());
+                vendedores.add(new Vendedor(nome, Cpf, endereco, telefone, salario));
+            }else if(resp == 2){
+                System.out.println("Digite o Salario:");
+                int salario = Integer.parseInt(scan.nextLine());
+                segurancas.add(new Seguranca(nome, Cpf, endereco, telefone, salario));
+            }
+        }  
+    }
+    public void addCliente(Cliente cliente){
+        Clientes.add(cliente);
+    }
+
+    public void addVendedor(Vendedor vendedor){
+        vendedores.add(vendedor);
+    }
+
+    public void addSeguranca(Seguranca seguranca){
+        segurancas.add(seguranca);
+    }
 }

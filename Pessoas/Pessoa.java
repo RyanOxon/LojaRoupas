@@ -4,10 +4,10 @@ public abstract class Pessoa {
     
     protected String nome;
     protected String cpf;
-    protected String  endereco;
-    protected int telefone;
+    protected String endereco;
+    protected String telefone;
 
-    Pessoa(String nome, String cpf, String endereco, int telefone){
+    Pessoa(String nome, String cpf, String endereco, String telefone){
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
@@ -27,7 +27,7 @@ public abstract class Pessoa {
         return this.endereco;
     }
 
-    public int getTelefone(){
+    public String getTelefone(){
         return this.telefone;
     }
 }

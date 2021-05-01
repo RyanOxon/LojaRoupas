@@ -1,11 +1,9 @@
 package Pessoas;
 
 public class Vendedor extends Funcionario{
-   
     
-    Vendedor(String nome, String cpf, String endereco, int telefone){
-        super(nome, cpf, endereco, telefone);
+    Vendedor(String nome, String cpf, String endereco, String telefone, int salario){
+        super(nome, cpf, endereco, telefone, salario);
         this.funcao = "Vendedor";
-        this.salario = 2500;
     }  
 }

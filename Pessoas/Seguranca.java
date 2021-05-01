@@ -2,10 +2,9 @@ package Pessoas;
 
 
 public class Seguranca extends Funcionario{
-    public Seguranca(String nome, String cpf, String endereco, int telefone){
-        super(nome, cpf, endereco, telefone);
+    public Seguranca(String nome, String cpf, String endereco, String telefone, int salario){
+        super(nome, cpf, endereco, telefone, salario);
         this.funcao = "Segurança";
-        this.salario = 2200;
     }  
 
     public void checarCompras(Cliente cliente){
