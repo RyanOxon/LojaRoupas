@@ -1,11 +1,11 @@
-/*package Sistema;
+package Sistema;
 
 
 import Controle.*;
 import Itens.*;
 import Pessoas.*;
 import Sistema.*;
-*/
+
 import java.util.Scanner;
 
 public class Main {
@@ -41,8 +41,8 @@ public class Main {
                     String nome = resposta.nextLine();
                     if(!BancoDeDados.checkCliente(nome)){
                         System.out.println("Cliente nao encontrado, por favor cadastre-o\n");
-                        BancoDeDados.cadastraPessoa();
-                        System.out.println("\n cliente cadastrado refaca a operacao!");
+                        BancoDeDados.cadastraCliente();
+                        System.out.println("\n Cliente cadastrado! Refaça a operação!");
                     }else{
                         boolean compraAberta = true;
                         do{
@@ -54,9 +54,38 @@ public class Main {
                             System.out.println("| 4. Finalizar compra");
                             System.out.println("| 5. Cancelar compra");
                             System.out.println("________________________________________________");
+                            
+                            int resp = Integer.parseInt(resposta.nextLine());
+                            
+                            if(resp == 1){
+                                
+                            }else if(resp == 2){
+                                
+                            }else if(resp == 3){
+                                System.out.println("O total é de: " + caixa.getTotal());
+                            }else if(resp == 4){
+                                caixa.finalizarCompra();
+                                caixa.getClienteAtual().maisPontoDeFidelidade();
+                                compraAberta = false;
+                            }else if(resp == 5){
+                                caixa.cancelarCompra();
+                                compraAberta = false;
+                            }
+                            
                         }while(compraAberta);
                     }
                 }
+            }else if(opcao == 3){
+                BancoDeDados.cadastraProduto();
+                System.out.println("\n Produto cadastrado! Refaça a operação!");
+            }else if(opcao == 4){
+                
+            }else if(opcao == 5){
+                BancoDeDados.cadastraCliente();
+                System.out.println("\n Cliente cadastrado! Refaça a operação!");
+            }else if(opcao == 6){
+                BancoDeDados.cadastraFuncionario();
+                System.out.println("\n Funcionário cadastrado! Refaça a operação!");
             }
         }while(opcao != 0);
 
