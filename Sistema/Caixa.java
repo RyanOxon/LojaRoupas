@@ -1,9 +1,10 @@
 package Sistema;
 
-import java.util.*;
 import Itens.Produto;
 import Pessoas.Cliente;
 import Pessoas.Vendedor;
+
+import java.util.*;
 
 public class Caixa {
     private Vendedor usuario;

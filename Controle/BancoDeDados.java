@@ -2,13 +2,12 @@ package Controle;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Vector;
+
 
 import Itens.Produto;
 import Pessoas.Cliente;
 import Pessoas.Seguranca;
 import Pessoas.Vendedor;
-
 
 public class BancoDeDados {
     private static ArrayList<Produto> produtos = new ArrayList<>();

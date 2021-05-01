@@ -2,7 +2,6 @@ package Pessoas;
 
 import Carrinho.Carrinho; 
 import Itens.Produto;
-
 public class Cliente extends Pessoa{
     private String fidelidade;
     
