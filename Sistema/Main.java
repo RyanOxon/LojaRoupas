@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args){
         InicializarEncerrar.iniciaSistema();
+        Caixa caixa = new Caixa();
         var resposta = new Scanner(System.in);
         int opcao = 0;
         boolean caixaAberto = false;
@@ -31,7 +32,7 @@ public class Main {
                     System.out.println("Digite o nome do operador");
                     String operador = resposta.nextLine();
                     if(BancoDeDados.checkVendendor(operador)){
-                        Caixa caixa = new Caixa(BancoDeDados.achaVendedor(operador));
+                        caixa.ocupaCaixaVazio(BancoDeDados.achaVendedor(operador));
                         caixaAberto = true;
                     }else System.out.println("Vendedor nao encontrado, verifique a ortografia ou cadastre o vendedor\n");
                 }else System.out.println("\nCaixa ja aberto! para abrir um novo, encerre o atual\n");
@@ -74,7 +75,7 @@ public class Main {
                             
                         }while(compraAberta);
                     }
-                }
+                }else System.out.println("\n Caixa ainda não aberto! Abra o caixa e refaça a operação");
             }else if(opcao == 3){
                 BancoDeDados.cadastraProduto();
                 System.out.println("\n Produto cadastrado! Refaça a operação!");
