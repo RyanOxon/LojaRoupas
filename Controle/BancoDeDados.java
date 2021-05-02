@@ -35,17 +35,13 @@ public class BancoDeDados {
         Scanner scan = new Scanner(System.in);
         System.out.println("Pronto para cadastrar um novo produto!\n Digite a descricao do produto:");
         String nome = scan.nextLine();
-        System.out.println("Digite o tipo do produto");
-        String tipo = scan.nextLine();
-        System.out.println("Digite a Cor do produto");
-        String cor = scan.nextLine();
         System.out.println("Digite o tamanho do produto");
         String tamanho = scan.nextLine();
         System.out.println("Digite a quantidade do produto:");
         int qtd = Integer.parseInt(scan.nextLine());
         System.out.println("Digite o Valor do produto:");
         double valor = Double.parseDouble(scan.nextLine());
-        produtos.add(new Produto(nome, produtos.size(), qtd, valor, cor, tamanho, tipo));     
+        produtos.add(new Produto(nome, produtos.size(), qtd, valor, tamanho));     
     }
 
     public static void cadastraCliente(){
