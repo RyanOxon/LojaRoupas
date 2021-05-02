@@ -16,3 +16,6 @@ Decidimos entao, para evitar qualquer tipo de copia, refazer o projeto. Decidimo
 O codigo final acabou ficando diferente do planejado durante a construcao do diagrama. Mas ele serviu como esqueleto para o processo.
 
 ![Diagrama UML](https://cdn.discordapp.com/attachments/288526952397275138/838431707257634846/6ahTJS6ItsQAAAABJRU5ErkJggg.png)
+
+
+Obs: O código no git está otimizado para o NetBeans, para usar outra IDE talvez seja necessário mudar algumas coisas.
