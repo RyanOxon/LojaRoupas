@@ -8,6 +8,7 @@ public abstract class InicializarEncerrar {
     static boolean sistemaFuncionando = true;
     protected static void iniciaSistema(){
         Arquivo.lerProdutos();
+        System.out.println(".");
         Arquivo.lerClientes();
         Arquivo.lerSeguranca();
         Arquivo.lerVendedor();

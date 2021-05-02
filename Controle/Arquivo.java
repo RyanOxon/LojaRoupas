@@ -71,12 +71,10 @@ public class Arquivo {
 
 	public static void escreveProduto() {
 		try {
-			System.out.println("Salvando produtos");
 			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Controle\\Produtos.dat"));
 			out.writeObject(BancoDeDados.getProduto());
 			out.flush();
 			out.close();
-			System.out.println("Produtos Salvos");
 		} catch (IOException e) {
 			System.out.println("Erro ao salvar os produtos");
 			e.printStackTrace();
@@ -85,12 +83,10 @@ public class Arquivo {
 
 	public static void escreveVendedor() {
 		try {
-			System.out.println("Salvando Vendedores");
 			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Controle\\Vendedores.dat"));
 			out.writeObject(BancoDeDados.getVendedor());
 			out.flush();
 			out.close();
-			System.out.println("Vendedores Salvos");
 		} catch (IOException e) {
 			System.out.println("Erro ao salvar os vendedores");
 		}
@@ -98,12 +94,10 @@ public class Arquivo {
 
 	public static void escreveSeguranca() {
 		try {
-			System.out.println("Salvando segurancas");
 			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Controle\\Segurancas.dat"));
 			out.writeObject(BancoDeDados.getSeguranca());
 			out.flush();
 			out.close();
-			System.out.println("Segurancas Salvos");
 		} catch (IOException e) {
 			System.out.println("Erro ao salvar os segurancas");
 		}
@@ -111,12 +105,10 @@ public class Arquivo {
 
 	public static void escreveCliente() {
 		try {
-			System.out.println("Salvando Clientes");
 			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Controle\\Clientes.dat"));
 			out.writeObject(BancoDeDados.getClientes());
 			out.flush();
 			out.close();
-			System.out.println("Clientes Salvos");
 		} catch (IOException e) {
 			System.out.println("Erro ao salvar os produtos");
 		}

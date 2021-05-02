@@ -46,4 +46,12 @@ public class Produto implements Serializable {
     public void setId(int id) {
         this.Id = id;
     }
+
+	public void decrementaQtd() {
+        this.qtd--;
+	}
+
+    public void setQtd(int nQtd) {
+        this.qtd = nQtd;
+    }
 }

@@ -54,6 +54,10 @@ public class Caixa {
         return this.ocupado;
     }
     
+    public void setOcupado(boolean b){
+        this.ocupado = b;
+    }
+
     public void ocupaCaixaVazio(Vendedor usuario){
         this.usuario = usuario;
     }
@@ -63,12 +67,31 @@ public class Caixa {
     }
     
     public void finalizarCompra(){
-        new Thread(new Runnable(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Digite o valor recebido");
+        Double recebido = Double.parseDouble(scan.nextLine());
+        if(recebido.equals(this.getTotal())){
+            System.out.println("Pagamento recebido \n Sem troco");
+            this.setOcupado(false);
+            System.out.println("Compra encerrada!");
+        }else if(recebido>= this.getTotal()){
+            Double troco = recebido - this.getTotal();
+            System.out.println("Pagamento recebido \n Troco de " + troco);
+            this.setOcupado(false);
+            System.out.println("Compra encerrada!");
+        }else System.out.println("Valor invalido!");
+        if(!this.ocupado){
+            for(Produto p : carrinho){
+                BancoDeDados.achaProduto(p.getDescricao()).decrementaQtd();
+            } carrinho.clear();
+        }
+
+        /*new Thread(){
             @Override
             public void run() {
                 try{
+    
                     System.out.println("Realizando o pagamento...");
-                    
                     Thread.sleep(1300);
                     
                     System.out.println("Pagamanto aceito!");
@@ -77,13 +100,12 @@ public class Caixa {
                     System.out.println("Erro ao realizar o pagamento.");
                 }
             }  
-       }).start();
+       }.start();*/
     }
     
     public void cancelarCompra(){
-        for(Produto prod: carrinho){
-            removeItem(prod);
-        }
+        carrinho.clear();
+        this.setOcupado(false);
     }
 
     public void getCarrinho(){

@@ -21,8 +21,13 @@ public class Main {
             System.out.println("| 1. Abrir caixa");
             System.out.println("| 2. Atender Cliente");
             System.out.println("| 3. Cadastrar Novo Produto");
-            System.out.println("| 4. Cadastrar Novo Cliente");
-            System.out.println("| 5. Cadastrar Novo Funcionario");
+            System.out.println("| 4. Editar Quantidade de um produto");
+            System.out.println("| 5. Ver estoque de Produtos");
+            System.out.println("| 6. Cadastrar Novo Cliente");
+            System.out.println("| 7. Ver Clientes");
+            System.out.println("| 8. Cadastrar Novo Funcionario");
+            System.out.println("| 9. Ver Funcionarios");
+            System.out.println("| 10. Encerrar caixa");
             System.out.println("| 0. Sair do Sistema");
             System.out.println("________________________________________________");
             opcao = Integer.parseInt(resposta.nextLine());
@@ -50,7 +55,7 @@ public class Main {
                         BancoDeDados.cadastraCliente();
                         System.out.println("\n Cliente cadastrado! Refaça a operação!");
                     }else{
-                        boolean compraAberta = true;
+                        caixa.setOcupado(true);
                         caixa.setClienteAtual(BancoDeDados.achaClientes(nome));
                         do{
                             System.out.println("_______________________________________________");
@@ -61,8 +66,9 @@ public class Main {
                             System.out.println("| Menu De Venda:");
                             System.out.println("| 1. Adicionar Produto");
                             System.out.println("| 2. Remover produto");
-                            System.out.println("| 3. Finalizar compra");
-                            System.out.println("| 4. Cancelar compra");
+                            System.out.println("| 3. Ver lista de produtos");
+                            System.out.println("| 4. Finalizar compra");
+                            System.out.println("| 5. Cancelar compra");
                             System.out.println("________________________________________________");
                             
                             int resp = Integer.parseInt(resposta.nextLine());
@@ -80,29 +86,47 @@ public class Main {
                                 if(caixa.estaNoCarrinho(n))
                                     caixa.removeItem(BancoDeDados.achaProduto(n));
                                 else System.out.println("Produto nao esta no carrinho, verifique a ortografia");
-
                             }else if(resp == 3){
-                                caixa.finalizarCompra();
-                                caixa.getClienteAtual().maisPontoDeFidelidade();
-                                compraAberta = false;
+                                BancoDeDados.printProdutos();
                             }else if(resp == 4){
+                                caixa.finalizarCompra();
+                            }else if(resp == 5){
                                 caixa.cancelarCompra();
-                                compraAberta = false;
                             }
                             
-                        }while(compraAberta);
+                        }while(caixa.getOcupado());
                     }
                 }else System.out.println("\n Caixa ainda não aberto! Abra o caixa e refaça a operação");
             }else if(opcao == 3){
                 BancoDeDados.cadastraProduto();
                 System.out.println("\n Produto cadastrado!");
-                
             }else if(opcao == 4){
+                System.out.println("Digite o nome do produto para ser editado:");
+                String edit = resposta.nextLine();
+                if(BancoDeDados.checkProduto(edit)){
+                    System.out.println("Digite a nova quantidade do produto");
+                    int nQtd = Integer.parseInt(resposta.nextLine());
+                    BancoDeDados.achaProduto(edit).setQtd(nQtd);
+                }
+            }else if(opcao == 5){
+                BancoDeDados.printProdutos();
+            }else if(opcao == 6){
                 BancoDeDados.cadastraCliente();
                 System.out.println("\n Cliente cadastrado!!");
-            }else if(opcao == 5){
+            }else if(opcao == 7){
+                BancoDeDados.printClientes();
+            }else if(opcao == 8){
                 BancoDeDados.cadastraFuncionario();
                 System.out.println("\n Funcionário cadastrado!!");
+            }else if(opcao == 9){
+                BancoDeDados.printFuncionarios();
+            }else if(opcao == 10){
+                if(caixaAberto){
+                    caixa.ocupaCaixaVazio(null);
+                    caixa.setSeguranca(null);
+                    caixaAberto = false;
+                    System.out.println("Caixa Encerrado!");
+                }
             }
         }while(opcao != 0); 
         

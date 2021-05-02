@@ -175,4 +175,36 @@ public class BancoDeDados {
         return null;
     }
 
+	public static void printProdutos(){
+        System.out.println("-------------ITENS NO ESTOQUE----------------");
+        for(Produto p : produtos){
+            System.out.println(p.getQtd()+"x | " + p.getDescricao() + " | R$" + p.getValor());
+        }
+        System.out.println("----------------------------------------------");
+	}
+
+	public static void printClientes() {
+        System.out.println("-------------Clientes Cadastrados------------");
+        for(Cliente c : Clientes){
+            System.out.println("|Nome: "+ c.getNome()+ "-> Cpf: " + c.getCpf() 
+            + " -> Pontos : " + c.getFidelidade() );
+        }
+        System.out.println("----------------------------------------------");
+	}
+
+    public static void printFuncionarios() {
+        System.out.println("-------------Funcionarios Cadastrados------------");
+        System.out.println("_________Vendedores:");
+        for(Vendedor v : vendedores){
+            System.out.println("|Nome: "+ v.getNome()+ "-> Cpf: " + v.getCpf() 
+            + "-> Salario: "+ v.getSalario());
+        }
+        System.out.println("_________Segurancas:");
+        for(Seguranca s : segurancas){
+            System.out.println("|Nome: "+ s.getNome()+ "-> Cpf: " + s.getCpf() 
+            + "-> Salario: "+ s.getSalario());
+        }
+        System.out.println("----------------------------------------------");
+	}
 }
+
