@@ -2,19 +2,15 @@
 package Sistema;
 
 import Controle.*;
-import Itens.*;
-import Pessoas.*;
-import Sistema.*;
-
-
 import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args) throws InterruptedException{
         InicializarEncerrar.iniciaSistema();
         Caixa caixa = new Caixa();
         Scanner resposta = new Scanner(System.in);
-        int opcao = 0;
+        int opcao;
         boolean caixaAberto = false;
         do{
             System.out.println("_______________________________________________");
@@ -38,7 +34,7 @@ public class Main {
                     if(!caixaAberto){
                         System.out.println("Digite o nome do operador");
                         String operador = resposta.nextLine();
-                        if(BancoDeDados.checkVendendor(operador)){
+                        if(BancoDeDados.checkVendedor(operador)){
                             System.out.println("Digite o nome do seguranca vigente");
                             String seg = resposta.nextLine();
                             if(BancoDeDados.checkSeguranca(seg)){
@@ -118,7 +114,6 @@ public class Main {
                     break;
                 case 3:
                     BancoDeDados.cadastraProduto();
-                    System.out.println("\n Produto cadastrado!");
                     break;
                 case 4:
                     System.out.println("Digite o nome do produto para ser editado:");
@@ -133,14 +128,12 @@ public class Main {
                     break;
                 case 6:
                     BancoDeDados.cadastraCliente();
-                    System.out.println("\n Cliente cadastrado!!");
                     break;
                 case 7:
                     BancoDeDados.printClientes();
                     break;
                 case 8:
                     BancoDeDados.cadastraFuncionario();
-                    System.out.println("\n Funcionário cadastrado!!");
                     break;
                 case 9:
                     BancoDeDados.printFuncionarios();
