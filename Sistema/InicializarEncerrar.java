@@ -1,9 +1,9 @@
-/*
+
 package Sistema;
 
 import Controle.Arquivo;
 import Controle.BancoDeDados;
-*/
+
 public abstract class InicializarEncerrar {
     static boolean sistemaFuncionando = true;
     protected static void iniciaSistema(){

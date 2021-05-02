@@ -1,4 +1,4 @@
-//package Itens;
+package Itens;
 
 import java.io.Serializable;
 

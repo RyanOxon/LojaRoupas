@@ -1,4 +1,4 @@
-//package Pessoas;
+package Pessoas;
 
 public class Seguranca extends Funcionario{
     public Seguranca(String nome, String cpf, String endereco, String telefone, int salario){

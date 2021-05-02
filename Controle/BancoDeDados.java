@@ -1,14 +1,14 @@
-//package Controle;
+package Controle;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/*
+
 import Itens.Produto;
 import Pessoas.Cliente;
 import Pessoas.Seguranca;
 import Pessoas.Vendedor;
-*/
+
 public class BancoDeDados {
     private static ArrayList<Produto> produtos = new ArrayList<>();
     private static ArrayList<Vendedor> vendedores = new ArrayList<>();

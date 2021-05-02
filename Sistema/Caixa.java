@@ -1,12 +1,10 @@
-/*
+
 package Sistema;
 
 import Itens.Produto;
 import Pessoas.Cliente;
 import Pessoas.Vendedor;
-*/
 
-import java.text.DecimalFormat;
 import java.util.*;
 
 public class Caixa {

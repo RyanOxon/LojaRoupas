@@ -1,14 +1,14 @@
-//package Controle;
+package Controle;
 
 import java.io.*;
 import java.util.ArrayList;
-/*
+
 import Controle.BancoDeDados;
 import Itens.Produto;
 import Pessoas.Cliente;
 import Pessoas.Seguranca;
 import Pessoas.Vendedor;
-*/
+
 
 public class Arquivo {
 

@@ -1,10 +1,11 @@
-/*
+
 package Sistema;
+
 import Controle.*;
 import Itens.*;
 import Pessoas.*;
 import Sistema.*;
-*/
+
 
 import java.util.Scanner;
 

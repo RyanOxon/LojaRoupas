@@ -1,6 +1,4 @@
-//package Pessoas;
- 
-//import Itens.Produto;
+package Pessoas;
 
 public class Cliente extends Pessoa{
     private int fidelidade;
