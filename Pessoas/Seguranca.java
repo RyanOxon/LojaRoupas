@@ -5,15 +5,17 @@ public class Seguranca extends Funcionario{
         super(nome, cpf, endereco, telefone, salario);
         this.funcao = "Segurança";
     }  
+    
 
     public void checarCompras(Cliente cliente){
         new Thread(){
 
+            @Override
             public void run() {
                 try{
-                    System.out.println("Conferindo as compras realizadas...");
+                    System.out.println("Seguranca conferindo as compras realizadas...");
                     
-                    Thread.sleep(1800);
+                    Thread.sleep(1300);
                     
                     System.out.println("Checagem finalizada, " + cliente.getNome() + " está liberado(a)");
                 }catch(InterruptedException ex){
