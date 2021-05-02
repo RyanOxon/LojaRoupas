@@ -10,6 +10,7 @@ import java.util.*;
 
 public class Caixa {
     private Vendedor usuario;
+    private Seguranca seguranca;
     private Cliente clienteAtual;
     private boolean ocupado;
     
@@ -17,11 +18,6 @@ public class Caixa {
 
     public Caixa(){
         this.ocupado = false;
-    }
-    
-    public Caixa(Vendedor vendedor) {
-        this.setUsuario(vendedor);
-        this.ocupado = true;
     }
 
     public Cliente getClienteAtual() {
@@ -36,10 +32,6 @@ public class Caixa {
         return usuario;
     }
 
-    public void setUsuario(Vendedor usuario) {
-        this.usuario = usuario;
-    }
-
     public void addItem(Produto prod){
         carrinho.add(prod);
     }
@@ -52,7 +44,7 @@ public class Caixa {
         double total = 0;
         
         for(Produto prod: carrinho){
-            total += prod.getQtd()*prod.getValor();
+            total += prod.getValor();
         }
         
         return total;
@@ -64,6 +56,10 @@ public class Caixa {
     
     public void ocupaCaixaVazio(Vendedor usuario){
         this.usuario = usuario;
+    }
+
+    public void setSeguranca(Seguranca seguranca){
+        this.seguranca = seguranca;
     }
     
     public void finalizarCompra(){
@@ -89,3 +85,19 @@ public class Caixa {
             removeItem(prod);
         }
     }
+
+    public void getCarrinho(){
+        for(Produto p : carrinho){
+            System.out.print(" | "+ p.getDescricao());
+            System.out.print(" | \n");
+        }
+    }
+
+    public boolean estaNoCarrinho(String n) {
+        for(Produto p : carrinho){
+            if(p.getDescricao().equals(n)) 
+                return true;
+        }
+        return false;
+    }
+}

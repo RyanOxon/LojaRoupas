@@ -32,10 +32,15 @@ public class Main {
                     System.out.println("Digite o nome do operador");
                     String operador = resposta.nextLine();
                     if(BancoDeDados.checkVendendor(operador)){
-                        caixa.ocupaCaixaVazio(BancoDeDados.achaVendedor(operador));
-                        caixaAberto = true;
-                        System.out.println("Caixa sendo operado por " + BancoDeDados.achaVendedor(operador).nome);
-                    }else System.out.println("Vendedor nao encontrado, verifique a ortografia ou cadastre o vendedor\n");
+                        System.out.println("Digite o nome do seguranca vigente");
+                        String seg = resposta.nextLine();
+                        if(BancoDeDados.checkSeguranca(seg)){
+                            caixa.ocupaCaixaVazio(BancoDeDados.achaVendedor(operador));
+                            caixa.setSeguranca(BancoDeDados.achaSeguranca(seg));
+                            caixaAberto = true;
+                            System.out.println("Caixa sendo operado por " + BancoDeDados.achaVendedor(operador).nome + "\nE sendo monitorado por" + BancoDeDados.achaSeguranca(seg).nome);
+                        }
+                        }else System.out.println("Vendedor nao encontrado, verifique a ortografia ou cadastre o vendedor\n");
                 }else System.out.println("\nCaixa ja aberto! para abrir um novo, encerre o atual\n");
             }else if(opcao == 2){
                 if(caixaAberto){
@@ -72,7 +77,9 @@ public class Main {
                             }else if(resp == 2){//remove do carrinho
                                 System.out.println("Digite o nome do produto");
                                 String n = resposta.nextLine();
-                                caixa.removeItem(BancoDeDados.achaProduto(n));
+                                if(caixa.estaNoCarrinho(n))
+                                    caixa.removeItem(BancoDeDados.achaProduto(n));
+                                else System.out.println("Produto nao esta no carrinho, verifique a ortografia");
 
                             }else if(resp == 3){
                                 caixa.finalizarCompra();

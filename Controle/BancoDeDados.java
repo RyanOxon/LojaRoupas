@@ -131,4 +131,39 @@ public class BancoDeDados {
         }
         return false;
     }
+
+    public static boolean checkSeguranca(String operador) {
+        //verificar na ArrayList se o operador informado existe
+        for(Seguranca seguranca: segurancas){
+            if(seguranca.getNome().equals(operador))
+                return true;
+        }
+        return false;
+    }
+
+    public static Seguranca achaSeguranca(String operador) {
+        //Encontrar na ArrayList o operador informado e retornar ele
+        for(Seguranca seguranca: segurancas){
+            if(seguranca.getNome().equals(operador))
+                return seguranca;
+        }
+
+            return null;
+    }
+
+    public static boolean checkProduto(String n) {
+        for(Produto produto: produtos){
+            if(produto.getDescricao().equals(n)) 
+            return true;
+        }
+        return false;
+    }
+
+	public static Produto achaProduto(String n) {
+        for(Produto produto: produtos){
+            if(produto.getDescricao().equals(n)) 
+                return produto;
+	    }
+        return null;
+    }
 }
