@@ -1,3 +1,0 @@
-Casaco;30
-Calca;30
-Camisa;30
