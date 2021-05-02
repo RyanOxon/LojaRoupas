@@ -1,6 +1,8 @@
+package Pessoas;
+
 import java.io.Serializable;
 
-package Pessoas;
+
 
 public abstract class Pessoa implements Serializable{
     
