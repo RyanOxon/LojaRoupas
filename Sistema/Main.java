@@ -9,7 +9,7 @@ import Sistema.*;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) throws InterruptedException{
         InicializarEncerrar.iniciaSistema();
         Caixa caixa = new Caixa();
         Scanner resposta = new Scanner(System.in);
@@ -31,6 +31,7 @@ public class Main {
             System.out.println("| 0. Sair do Sistema");
             System.out.println("________________________________________________");
             opcao = Integer.parseInt(resposta.nextLine());
+            System.out.println("\n\n\n\n\n\n\n");
             if(opcao == 1){
                 if(!caixaAberto){
                     System.out.println("Digite o nome do operador");
@@ -42,26 +43,25 @@ public class Main {
                             caixa.ocupaCaixaVazio(BancoDeDados.achaVendedor(operador));
                             caixa.setSeguranca(BancoDeDados.achaSeguranca(seg));
                             caixaAberto = true;
-                            System.out.println("Caixa sendo operado por " + BancoDeDados.achaVendedor(operador).nome + "\nE sendo monitorado por" + BancoDeDados.achaSeguranca(seg).nome);
+                            System.out.println("\nCaixa sendo operado por " + BancoDeDados.achaVendedor(operador).nome + "\nE sendo monitorado por " + BancoDeDados.achaSeguranca(seg).nome);
                         }
-                        }else System.out.println("Vendedor nao encontrado, verifique a ortografia ou cadastre o vendedor\n");
+                        }else System.out.println("\nVendedor nao encontrado, verifique a ortografia ou cadastre o vendedor\n");
                 }else System.out.println("\nCaixa ja aberto! para abrir um novo, encerre o atual\n");
             }else if(opcao == 2){
                 if(caixaAberto){
                     System.out.println("Informe o Cliente a ser atendido");
                     String nome = resposta.nextLine();
                     if(!BancoDeDados.checkCliente(nome)){
-                        System.out.println("Cliente nao encontrado, por favor cadastre-o\n");
-                        BancoDeDados.cadastraCliente();
-                        System.out.println("\n Cliente cadastrado! Refaça a operação!");
+                        System.out.println("\nCliente nao encontrado, por favor cadastre-o\n");
                     }else{
                         caixa.setOcupado(true);
                         caixa.setClienteAtual(BancoDeDados.achaClientes(nome));
                         do{
                             System.out.println("_______________________________________________");
+                            System.out.println("===============Atendendo: "+ caixa.getClienteAtual().nome);
                             System.out.println("_______________Carrinho atual__________________");
                             caixa.getCarrinho(); // Metodo pra retornar um print com o nome do produto no carrinho
-                            System.out.println("Total = " + caixa.getTotal());
+                            System.out.printf("Total = %.2f \n", caixa.getTotal());
                             System.out.println("_______________________________________________");
                             System.out.println("| Menu De Venda:");
                             System.out.println("| 1. Adicionar Produto");
@@ -78,14 +78,14 @@ public class Main {
                                 String n = resposta.nextLine();
                                 if(BancoDeDados.checkProduto(n))
                                     caixa.addItem(BancoDeDados.achaProduto(n));
-                                else System.out.println("Produto nao encontrado");
+                                else System.out.println("\nProduto nao encontrado");
 
                             }else if(resp == 2){//remove do carrinho
                                 System.out.println("Digite o nome do produto");
                                 String n = resposta.nextLine();
                                 if(caixa.estaNoCarrinho(n))
                                     caixa.removeItem(BancoDeDados.achaProduto(n));
-                                else System.out.println("Produto nao esta no carrinho, verifique a ortografia");
+                                else System.out.println("\nProduto nao esta no carrinho, verifique a ortografia");
                             }else if(resp == 3){
                                 BancoDeDados.printProdutos();
                             }else if(resp == 4){
@@ -128,6 +128,8 @@ public class Main {
                     System.out.println("Caixa Encerrado!");
                 }
             }
+        Thread.sleep(1500);
+        System.out.println("\n\n\n\n");
         }while(opcao != 0); 
         
         resposta.close();

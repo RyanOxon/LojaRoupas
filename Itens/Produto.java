@@ -54,4 +54,8 @@ public class Produto implements Serializable {
     public void setQtd(int nQtd) {
         this.qtd = nQtd;
     }
+
+	public void setValor(int i) {
+        this.valor = i;
+	}
 }
