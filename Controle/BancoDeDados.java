@@ -131,6 +131,14 @@ public class BancoDeDados {
         }
         return false;
     }
+    
+	public static Cliente achaClientes(String nome) {
+        for(Cliente cliente: Clientes){
+            if(cliente.getNome().equals(nome))
+                return cliente;
+        }
+		return null;
+	}
 
     public static boolean checkSeguranca(String operador) {
         //verificar na ArrayList se o operador informado existe
@@ -166,4 +174,5 @@ public class BancoDeDados {
 	    }
         return null;
     }
+
 }

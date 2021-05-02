@@ -21,9 +21,8 @@ public class Main {
             System.out.println("| 1. Abrir caixa");
             System.out.println("| 2. Atender Cliente");
             System.out.println("| 3. Cadastrar Novo Produto");
-            System.out.println("| 4. Editar Produto");
-            System.out.println("| 5. Cadastrar Novo Cliente");
-            System.out.println("| 6. Cadastrar Novo Funcionario");
+            System.out.println("| 4. Cadastrar Novo Cliente");
+            System.out.println("| 5. Cadastrar Novo Funcionario");
             System.out.println("| 0. Sair do Sistema");
             System.out.println("________________________________________________");
             opcao = Integer.parseInt(resposta.nextLine());
@@ -52,6 +51,7 @@ public class Main {
                         System.out.println("\n Cliente cadastrado! Refaça a operação!");
                     }else{
                         boolean compraAberta = true;
+                        caixa.setClienteAtual(BancoDeDados.achaClientes(nome));
                         do{
                             System.out.println("_______________________________________________");
                             System.out.println("_______________Carrinho atual__________________");
@@ -96,12 +96,11 @@ public class Main {
             }else if(opcao == 3){
                 BancoDeDados.cadastraProduto();
                 System.out.println("\n Produto cadastrado!");
-            }else if(opcao == 4){
                 
-            }else if(opcao == 5){
+            }else if(opcao == 4){
                 BancoDeDados.cadastraCliente();
                 System.out.println("\n Cliente cadastrado!!");
-            }else if(opcao == 6){
+            }else if(opcao == 5){
                 BancoDeDados.cadastraFuncionario();
                 System.out.println("\n Funcionário cadastrado!!");
             }

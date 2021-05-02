@@ -63,7 +63,8 @@ public class Caixa {
     }
     
     public void finalizarCompra(){
-        new Thread(){
+        new Thread(new Runnable(){
+            @Override
             public void run() {
                 try{
                     System.out.println("Realizando o pagamento...");
@@ -75,9 +76,8 @@ public class Caixa {
                     ex.getMessage();
                     System.out.println("Erro ao realizar o pagamento.");
                 }
-            }
-            
-       }.start();
+            }  
+       }).start();
     }
     
     public void cancelarCompra(){
@@ -89,8 +89,7 @@ public class Caixa {
     public void getCarrinho(){
         for(Produto p : carrinho){
             System.out.print(" | "+ p.getDescricao());
-            System.out.print(" | \n");
-        }
+        } System.out.print(" | \n");
     }
 
     public boolean estaNoCarrinho(String n) {
