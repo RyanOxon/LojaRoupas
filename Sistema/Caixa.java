@@ -15,7 +15,7 @@ public class Caixa {
     private Cliente clienteAtual;
     private boolean ocupado;
     
-    Set<Produto> carrinho = new HashSet<>();
+    List<Produto> carrinho = new ArrayList<>();
 
     public Caixa(){
         this.ocupado = false;
