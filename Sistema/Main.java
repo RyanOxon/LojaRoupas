@@ -103,6 +103,7 @@ public class Main {
                                     case 4:
                                         caixa.finalizarCompra();
                                         caixa.getSeguranca().checarCompras(caixa.getClienteAtual());
+                                        caixa.getClienteAtual().maisPontoDeFidelidade();
                                         break;
                                     case 5:
                                         caixa.cancelarCompra();
