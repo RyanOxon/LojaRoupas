@@ -8,14 +8,12 @@ public class Produto implements Serializable {
     private int Id;
     private int qtd;
     private double valor;
-    private String tamanho;
     
-    public Produto(String descricao, int id, int qtd, double valor, String tamanho) {
+    public Produto(String descricao, int id, int qtd, double valor) {
         this.descricao = descricao;
         this.Id = id;
         this.qtd = qtd;
         this.valor = valor;
-        this.tamanho = tamanho;
     }
 
     public String getDescricao(){
