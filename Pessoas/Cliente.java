@@ -1,8 +1,4 @@
-package Pessoas;
-
-import java.io.Serializable;
-
-
+//package Pessoas;
  
 //import Itens.Produto;
 

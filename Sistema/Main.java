@@ -1,10 +1,10 @@
+/*
 package Sistema;
-
-
 import Controle.*;
 import Itens.*;
 import Pessoas.*;
 import Sistema.*;
+*/
 
 import java.util.Scanner;
 
@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args){
         InicializarEncerrar.iniciaSistema();
         Caixa caixa = new Caixa();
-        var resposta = new Scanner(System.in);
+        Scanner resposta = new Scanner(System.in);
         int opcao = 0;
         boolean caixaAberto = false;
         do{
@@ -34,6 +34,7 @@ public class Main {
                     if(BancoDeDados.checkVendendor(operador)){
                         caixa.ocupaCaixaVazio(BancoDeDados.achaVendedor(operador));
                         caixaAberto = true;
+                        System.out.println("Caixa sendo operado por " + BancoDeDados.achaVendedor(operador).nome);
                     }else System.out.println("Vendedor nao encontrado, verifique a ortografia ou cadastre o vendedor\n");
                 }else System.out.println("\nCaixa ja aberto! para abrir um novo, encerre o atual\n");
             }else if(opcao == 2){
@@ -48,29 +49,36 @@ public class Main {
                         boolean compraAberta = true;
                         do{
                             System.out.println("_______________________________________________");
+                            System.out.println("_______________Carrinho atual__________________");
+                            caixa.getCarrinho(); // Metodo pra retornar um print com o nome do produto no carrinho
+                            System.out.println("Total = " + caixa.getTotal());
+                            System.out.println("_______________________________________________");
                             System.out.println("| Menu De Venda:");
                             System.out.println("| 1. Adicionar Produto");
                             System.out.println("| 2. Remover produto");
-                            System.out.println("| 3. Ver total");
-                            System.out.println("| 4. Finalizar compra");
-                            System.out.println("| 5. Cancelar compra");
+                            System.out.println("| 3. Finalizar compra");
+                            System.out.println("| 4. Cancelar compra");
                             System.out.println("________________________________________________");
                             
                             int resp = Integer.parseInt(resposta.nextLine());
                             
-                            if(resp == 1){
-                                Produto prod = caixa.criaProduto();
-                                caixa.addItem(prod);
-                            }else if(resp == 2){
-                                Produto prod = caixa.criaProduto();
-                                caixa.removeItem(prod);
+                            if(resp == 1){// adiciona no carrinho
+                                System.out.println("Digite o nome do produto");
+                                String n = resposta.nextLine();
+                                if(BancoDeDados.checkProduto(n))
+                                    caixa.addItem(BancoDeDados.achaProduto(n));
+                                else System.out.println("Produto nao encontrado");
+
+                            }else if(resp == 2){//remove do carrinho
+                                System.out.println("Digite o nome do produto");
+                                String n = resposta.nextLine();
+                                caixa.removeItem(BancoDeDados.achaProduto(n));
+
                             }else if(resp == 3){
-                                System.out.println("O total é de: " + caixa.getTotal());
-                            }else if(resp == 4){
                                 caixa.finalizarCompra();
                                 caixa.getClienteAtual().maisPontoDeFidelidade();
                                 compraAberta = false;
-                            }else if(resp == 5){
+                            }else if(resp == 4){
                                 caixa.cancelarCompra();
                                 compraAberta = false;
                             }
@@ -80,18 +88,18 @@ public class Main {
                 }else System.out.println("\n Caixa ainda não aberto! Abra o caixa e refaça a operação");
             }else if(opcao == 3){
                 BancoDeDados.cadastraProduto();
-                System.out.println("\n Produto cadastrado! Refaça a operação!");
+                System.out.println("\n Produto cadastrado!");
             }else if(opcao == 4){
                 
             }else if(opcao == 5){
                 BancoDeDados.cadastraCliente();
-                System.out.println("\n Cliente cadastrado! Refaça a operação!");
+                System.out.println("\n Cliente cadastrado!!");
             }else if(opcao == 6){
                 BancoDeDados.cadastraFuncionario();
-                System.out.println("\n Funcionário cadastrado! Refaça a operação!");
+                System.out.println("\n Funcionário cadastrado!!");
             }
-        }while(opcao != 0);
-
+        }while(opcao != 0); 
+        
         resposta.close();
         InicializarEncerrar.encerraSistema();
         

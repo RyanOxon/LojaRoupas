@@ -1,14 +1,14 @@
-package Controle;
+//package Controle;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
+/*
 import Itens.Produto;
 import Pessoas.Cliente;
 import Pessoas.Seguranca;
 import Pessoas.Vendedor;
-
+*/
 public class BancoDeDados {
     private static ArrayList<Produto> produtos = new ArrayList<>();
     private static ArrayList<Vendedor> vendedores = new ArrayList<>();
@@ -45,8 +45,7 @@ public class BancoDeDados {
         int qtd = Integer.parseInt(scan.nextLine());
         System.out.println("Digite o Valor do produto:");
         double valor = Double.parseDouble(scan.nextLine());
-        produtos.add(new Produto(nome, produtos.size(), qtd, valor, cor, tamanho, tipo));
-        scan.close();      
+        produtos.add(new Produto(nome, produtos.size(), qtd, valor, cor, tamanho, tipo));     
     }
 
     public static void cadastraCliente(){
@@ -60,8 +59,6 @@ public class BancoDeDados {
         System.out.println("Digite o Telefone");
         String telefone = scan.nextLine();
         Clientes.add(new Cliente(nome, Cpf, endereco, telefone));
-         
-        scan.close();  
     }
     
     public static void cadastraFuncionario(){
@@ -86,8 +83,7 @@ public class BancoDeDados {
             int salario = Integer.parseInt(scan.nextLine());
             segurancas.add(new Seguranca(nome, Cpf, endereco, telefone, salario));
         }
-        
-        scan.close();  
+         
     }
 
     public static void addProduto(Produto produto){

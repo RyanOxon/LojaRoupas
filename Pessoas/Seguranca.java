@@ -1,5 +1,3 @@
-import java.io.Serializable;
-
 //package Pessoas;
 
 public class Seguranca extends Funcionario{

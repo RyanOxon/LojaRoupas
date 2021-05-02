@@ -1,5 +1,3 @@
-import java.io.Serializable;
-
 //package Pessoas;
 
 public class Vendedor extends Funcionario{
