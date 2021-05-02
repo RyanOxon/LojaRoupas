@@ -35,13 +35,18 @@ public class BancoDeDados {
         Scanner scan = new Scanner(System.in);
         System.out.println("Pronto para cadastrar um novo produto!\n Digite a descricao do produto:");
         String nome = scan.nextLine();
-        System.out.println("Digite o tamanho do produto");
-        String tamanho = scan.nextLine();
         System.out.println("Digite a quantidade do produto:");
         int qtd = Integer.parseInt(scan.nextLine());
         System.out.println("Digite o Valor do produto:");
         double valor = Double.parseDouble(scan.nextLine());
-        produtos.add(new Produto(nome, produtos.size(), qtd, valor, tamanho));     
+        Produto prod = new Produto(nome, produtos.size(), qtd, valor);
+        if(checkProduto(prod.getDescricao())){
+            System.out.println("Produto ja existe!");
+        }else{
+            produtos.add(prod);
+            System.out.println("\n Produto cadastrado!");
+        }
+                 
     }
 
     public static void cadastraCliente(){
@@ -54,7 +59,14 @@ public class BancoDeDados {
         String endereco = scan.nextLine();
         System.out.println("Digite o Telefone");
         String telefone = scan.nextLine();
-        Clientes.add(new Cliente(nome, Cpf, endereco, telefone));
+        Cliente cli = new Cliente(nome, Cpf, endereco, telefone);
+        if(checkCliente(cli.getNome())){
+            System.out.println("Cliente ja cadastrado!");
+        }else{
+            Clientes.add(cli);
+            System.out.println("\n Cliente cadastrado!!");
+        }
+        
     }
     
     public static void cadastraFuncionario(){
@@ -71,13 +83,25 @@ public class BancoDeDados {
         System.out.println("Escolha a funcao do funcionario: \n | 1 - Vendedor | 2 - Segurança |");
         int resp = Integer.parseInt(scan.nextLine());
         if(resp == 1){
-            System.out.println("Digite o Salario:");
-            int salario = Integer.parseInt(scan.nextLine());
-            vendedores.add(new Vendedor(nome, Cpf, endereco, telefone, salario));
+            int salario = 2300;
+            Vendedor vend = new Vendedor(nome, Cpf, endereco, telefone, salario);
+            if(checkVendedor(vend.getNome())){
+                System.out.println("Vendedor ja cadastrado!");
+            }else{
+                vendedores.add(new Vendedor(nome, Cpf, endereco, telefone, salario));
+                System.out.println("\n Vendedor cadastrado!!");
+            }
+            
         }else if(resp == 2){
-            System.out.println("Digite o Salario:");
-            int salario = Integer.parseInt(scan.nextLine());
-            segurancas.add(new Seguranca(nome, Cpf, endereco, telefone, salario));
+            int salario = 2100;
+            Seguranca segu = new Seguranca(nome, Cpf, endereco, telefone, salario);
+            if(checkSeguranca(segu.getNome())){
+                System.out.println("Segurança ja cadastrado!");
+            }else{
+                segurancas.add(new Seguranca(nome, Cpf, endereco, telefone, salario));
+                System.out.println("\n Segurança cadastrado!!");
+            }
+            
         }
          
     }
@@ -99,7 +123,7 @@ public class BancoDeDados {
         segurancas.add(seguranca);
     }
 
-    public static boolean checkVendendor(String operador) {
+    public static boolean checkVendedor(String operador) {
         //verificar na ArrayList se o operador informado existe
         for(Vendedor vendedor: vendedores){
             if(vendedor.getNome().equals(operador))
@@ -158,10 +182,11 @@ public class BancoDeDados {
     public static boolean checkProduto(String n) {
         for(Produto produto: produtos){
             if(produto.getDescricao().equals(n)) 
-            return true;
+                return true;
         }
         return false;
     }
+    
 
 	public static Produto achaProduto(String n) {
         for(Produto produto: produtos){
@@ -182,24 +207,29 @@ public class BancoDeDados {
 	public static void printClientes() {
         System.out.println("-------------Clientes Cadastrados------------");
         for(Cliente c : Clientes){
-            System.out.println("|Nome: "+ c.getNome()+ "-> Cpf: " + c.getCpf() 
+            System.out.println("|Nome: "+ c.getNome()+ " -> Cpf: " + c.getCpf() 
             + " -> Pontos : " + c.getFidelidade() );
         }
         System.out.println("----------------------------------------------");
 	}
 
     public static void printFuncionarios() {
+        int total = 0;
         System.out.println("-------------Funcionarios Cadastrados------------");
         System.out.println("_________Vendedores:");
         for(Vendedor v : vendedores){
-            System.out.println("|Nome: "+ v.getNome()+ "-> Cpf: " + v.getCpf() 
-            + "-> Salario: "+ v.getSalario());
+            System.out.println("|Nome: "+ v.getNome()+ " -> Cpf: " + v.getCpf() 
+            + " -> Salario: "+ v.getSalario());
+            total += v.getSalario();
         }
         System.out.println("_________Segurancas:");
         for(Seguranca s : segurancas){
-            System.out.println("|Nome: "+ s.getNome()+ "-> Cpf: " + s.getCpf() 
-            + "-> Salario: "+ s.getSalario());
+            System.out.println("|Nome: "+ s.getNome()+ " -> Cpf: " + s.getCpf() 
+            + " -> Salario: "+ s.getSalario());
+            total += s.getSalario();
         }
+        System.out.println();
+        System.out.println("Despezas de " + total + " reais.");
         System.out.println("----------------------------------------------");
 	}
 }
