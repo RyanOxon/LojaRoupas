@@ -33,7 +33,7 @@ public class Produto implements Serializable {
     }
 
     public boolean estaDisponivel(){
-        if(qtd != 0) return true;
+        if(qtd > 0) return true;
         else return false;
     }
 
